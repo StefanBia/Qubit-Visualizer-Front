@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import DotMovement from './DotMover/DotMovement';
 
@@ -7,7 +6,6 @@ function App() {
     <div>
       <h1>Qubit One</h1>
       <DotMovement />
-      <div className='line-container'></div>
     </div>
   );
 }
