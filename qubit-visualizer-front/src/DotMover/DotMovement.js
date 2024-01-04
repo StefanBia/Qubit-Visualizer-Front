@@ -65,18 +65,18 @@ const DotMovement = () => {
     <div>
       <div className="state-zero">
         <h1>|0{'>'}</h1>
-        <div className="line-container">
-          <div
-            className="dot"
-            style={{
-              transform: `translate(${Xposition}px , ${Yposition}px)`,
-              opacity: 1,
-              width: `${dotSize}px`,
-              height: `${dotSize}px`,
-              background: firstDotColor
-            }}
-          />
-        </div>
+          <div className="line-container">
+            <div
+              className="dot"
+              style={{
+                transform: `translate(${Xposition}px , ${Yposition}px)`,
+                opacity: 1,
+                width: `${dotSize}px`,
+                height: `${dotSize}px`,
+                background: firstDotColor
+              }}
+            />
+          </div>
         <h1>|0{'>'}</h1>
       </div>
 

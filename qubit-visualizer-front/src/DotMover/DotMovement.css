@@ -3,9 +3,10 @@
   width: 600px; /* Length of the line */
   height: 5px;
   /* margin: 50px auto; */
-  margin-bottom: 80px;
+
   background: #ddd5d5;
   display: flex;
+  margin-top: 8px;
 }
 
 .state-zero,
@@ -13,6 +14,8 @@
   display: flex;
   justify-content: center;
   align-items: center; 
+  flex-direction: row;
+  gap: 12px;
 }
 
 
