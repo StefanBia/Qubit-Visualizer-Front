@@ -1,0 +1,15 @@
+.workbench{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+.square-button {
+    width: 100px;
+    height: 100px;
+    margin: 5px; /* Add some margin between buttons for spacing */
+    font-size: 18px;
+    text-transform: uppercase;
+}
