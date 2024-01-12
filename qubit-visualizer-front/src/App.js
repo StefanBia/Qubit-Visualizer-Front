@@ -2,6 +2,7 @@ import './App.css';
 import DotMovement from './DotMover/DotMovement';
 import Workbench from './components/workbench';
 import { useState } from 'react';
+import './fonts/space_age/space_age.ttf'
 
 function App() {
   const [selectedGate, setSelectedGate] = useState('X');
@@ -14,7 +15,7 @@ function App() {
   return (
     <div>
       <div className='header'>
-        <h1>Qubit Visualizer</h1>
+        <h1 className='title'>Qubit Visualizer</h1>
       </div>
 
       <div className='content-panel'>

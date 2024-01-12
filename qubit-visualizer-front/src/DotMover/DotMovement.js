@@ -86,7 +86,7 @@ const DotMovement = ({selectedGate}) => {
   return (
     <div>
       <div className="state-zero">
-        <h1>|0{'>'}</h1>
+        <h1 className='state-icon'>|0{'>'}</h1>
         <div className="line-container">
           <div
             className="dot"
@@ -101,11 +101,11 @@ const DotMovement = ({selectedGate}) => {
             }}
           />
         </div>
-        <h1>|0{'>'}</h1>
+        <h1 className='state-icon'>|0{'>'}</h1>
       </div>
 
       <div className="state-one">
-        <h1>|1{'>'}</h1>
+        <h1 className='state-icon'>|1{'>'}</h1>
         <div className="line-container">
           <div
             className="dot"
@@ -120,7 +120,7 @@ const DotMovement = ({selectedGate}) => {
             }}
           />
         </div>
-        <h1>|1{'>'}</h1>
+        <h1 className='state-icon'>|1{'>'}</h1>
       </div>
     </div>
   );

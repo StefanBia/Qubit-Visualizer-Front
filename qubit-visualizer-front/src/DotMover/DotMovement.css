@@ -4,9 +4,13 @@
   height: 5px;
   /* margin: 50px auto; */
 
-  background: #ddd5d5;
+  background: #8a8686;
   display: flex;
   margin-top: 8px;
+}
+
+.state-icon{
+  color: #f1acd1;
 }
 
 .state-zero,
