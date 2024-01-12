@@ -1,15 +1,23 @@
-.workbench{
+.workbench {
     display: flex;
-    justify-content: center;
-}
-
-
-
-
-.square-button {
-    width: 100px;
-    height: 100px;
-    margin: 5px; /* Add some margin between buttons for spacing */
+    justify-content: space-around;
+    gap: 40px;
+    margin-top: 20px;
+  }
+  
+  .square-button {
+    padding: 15px 30px;
     font-size: 18px;
-    text-transform: uppercase;
-}
+    background-color: #441763; /* Your specified color */
+    color: #ffffff;
+    border: 2px solid #340c4f; /* Slightly darker color for border */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  }
+  
+  .square-button:hover {
+    background-color: #340c4f; /* Darker color on hover */
+    border-color: #340c4f;
+  }
+  

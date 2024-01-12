@@ -9,6 +9,9 @@ const DotMovement = ({selectedGate}) => {
   const [dotSize, setDotSize] = useState(40); // Initialize size to 40px
   const [firstDotColor, setFirstDotColor] = useState('rgb(78, 219, 43)');
   const [secondDotColor, setSecondDotColor] = useState('rgb(78, 219, 43)'); // Initialize color
+  const colorRealPositive = 'linear-gradient(135deg, hsl(108, 79%, 35%), #105910)';
+  const colorRealNegative = 'linear-gradient(135deg, rgb(176, 31, 31), rgb(111, 14, 14))';
+  const colorImaginaryPositive = 'linear-gradient(135deg, #15afaf, #0a5959)';
   const lineLength = 600;
   let firstHalf = true;
 
@@ -17,7 +20,7 @@ const DotMovement = ({selectedGate}) => {
       setXPosition((prevXPosition) => {
         const newXPosition = (prevXPosition + 3) % lineLength;
 
-        if (selectedGate === 'X') {
+        if (selectedGate === 'Pauli-X') {
           if (newXPosition > lineLength / 2 && firstHalf) {
             setSecondDotOpacity(1);
             setFirstDotOpacity(0);
@@ -27,16 +30,16 @@ const DotMovement = ({selectedGate}) => {
             setSecondDotOpacity(0);
             setFirstDotOpacity(1);
             setDotSize(40);
-            setSecondDotColor('rgb(78, 219, 43)'); 
-            setFirstDotColor('rgb(78, 219, 43)');
+            setSecondDotColor(colorRealPositive); 
+            setFirstDotColor(colorRealPositive);
           }
         }
 
-        if (selectedGate === 'H') {
+        if (selectedGate === 'Hadamard') {
           if (newXPosition > lineLength / 2 && firstHalf) {
             setSecondDotOpacity(1);
             setDotSize(30);
-            setSecondDotColor('cyan'); 
+            setSecondDotColor(colorImaginaryPositive); 
             firstHalf = false;
           } else if (newXPosition < 3) {
             
@@ -44,28 +47,30 @@ const DotMovement = ({selectedGate}) => {
             setSecondDotOpacity(0);
             setFirstDotOpacity(1);
             setDotSize(40);
-            setSecondDotColor('rgb(78, 219, 43)'); 
-            setFirstDotColor('rgb(78, 219, 43)');
+            setSecondDotColor(colorRealPositive); 
+            setFirstDotColor(colorRealPositive);
           }
         }
 
-        if (selectedGate === 'Y') {
+        if (selectedGate === 'Pauli-Y') {
           if (newXPosition > lineLength / 2 && firstHalf) {
-            setFirstDotColor('rgb(191, 55, 55)');
+            setSecondDotColor(colorImaginaryPositive);
+            setSecondDotOpacity(1);
+            setFirstDotOpacity(0);
             firstHalf = false;
           } else if (newXPosition < 3) {
             setSecondDotOpacity(0);
             setFirstDotOpacity(1);
             setDotSize(40);
-            setSecondDotColor('rgb(78, 219, 43)'); 
-            setFirstDotColor('rgb(78, 219, 43)');
+            setSecondDotColor(colorRealPositive); 
+            setFirstDotColor(colorRealPositive);
             firstHalf = true; 
           }
         }
 
-        if (selectedGate === 'Z') {
+        if (selectedGate === 'Pauli-Z') {
         
-          setFirstDotColor('rgb(78, 219, 43)');
+          setFirstDotColor(colorRealPositive);
           setSecondDotOpacity(0);
           setFirstDotOpacity(1);
           setDotSize(40);
@@ -82,18 +87,20 @@ const DotMovement = ({selectedGate}) => {
     <div>
       <div className="state-zero">
         <h1>|0{'>'}</h1>
-          <div className="line-container">
-            <div
-              className="dot"
-              style={{
-                transform: `translate(${Xposition}px , ${Yposition}px)`,
-                opacity: firstDotOpacity,
-                width: `${dotSize}px`,
-                height: `${dotSize}px`,
-                background: firstDotColor
-              }}
-            />
-          </div>
+        <div className="line-container">
+          <div
+            className="dot"
+            style={{
+              transform: `translate(${Xposition}px , ${Yposition}px)`,
+              opacity: firstDotOpacity,
+              width: `${dotSize}px`,
+              height: `${dotSize}px`,
+              background: firstDotColor,
+              borderRadius: '50%', // Preserve the border-radius
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // Add a subtle box-shadow for a 3D effect
+            }}
+          />
+        </div>
         <h1>|0{'>'}</h1>
       </div>
 
@@ -108,6 +115,8 @@ const DotMovement = ({selectedGate}) => {
               width: `${dotSize}px`,
               height: `${dotSize}px`,
               background: secondDotColor,
+              borderRadius: '50%', // Preserve the border-radius
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // Add a subtle box-shadow for a 3D effect
             }}
           />
         </div>
@@ -116,5 +125,6 @@ const DotMovement = ({selectedGate}) => {
     </div>
   );
 };
+
 
 export default DotMovement;
