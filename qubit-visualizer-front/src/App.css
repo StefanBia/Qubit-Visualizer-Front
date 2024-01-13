@@ -1,6 +1,7 @@
 .header{
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
   margin-bottom: 80px;
 }
 
@@ -13,6 +14,8 @@
 .selected-gate{
   font-size: 30px;
   padding-bottom: 50px;
+  font-family: aspirer-neue;
+  font-weight: 200;
 }
 
 body {
@@ -32,4 +35,40 @@ body {
   font-family: "space-age";
   src: url("./fonts/space_age/space_age.ttf") format("truetype");
 }
+
+@font-face {
+  font-family: "aspirer-neue";
+  src: url("./fonts/lt_aspirer_neue/LTAspirerNeue-Regular.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "quantum";
+  src: url("./fonts/quantum_4/Quantum.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "caviar-dreams";
+  src: url("./fonts/caviar_dreams/CaviarDreams.ttf") format("truetype");
+}
+
+.menu-bar, .sign-in-tab {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  background-color: #1c4e6f; /* Button color */
+  color: #ffffff; /* Text color */
+  border: 1px solid #0c2331;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.menu-bar:hover, .sign-in-tab:hover {
+  background-color: #0b3653; /* Button color on hover */
+}
+
+
 

@@ -7,8 +7,8 @@ const DotMovement = ({selectedGate}) => {
   const [secondDotOpacity, setSecondDotOpacity] = useState(0); // Initialize opacity to 1
   const [firstDotOpacity, setFirstDotOpacity] = useState(1);
   const [dotSize, setDotSize] = useState(40); // Initialize size to 40px
-  const [firstDotColor, setFirstDotColor] = useState('rgb(78, 219, 43)');
-  const [secondDotColor, setSecondDotColor] = useState('rgb(78, 219, 43)'); // Initialize color
+  const [firstDotColor, setFirstDotColor] = useState('linear-gradient(135deg, hsl(108, 79%, 35%), #105910)');
+  const [secondDotColor, setSecondDotColor] = useState('linear-gradient(135deg, hsl(108, 79%, 35%), #105910)'); // Initialize color
   const colorRealPositive = 'linear-gradient(135deg, hsl(108, 79%, 35%), #105910)';
   const colorRealNegative = 'linear-gradient(135deg, rgb(176, 31, 31), rgb(111, 14, 14))';
   const colorImaginaryPositive = 'linear-gradient(135deg, #15afaf, #0a5959)';
@@ -86,7 +86,7 @@ const DotMovement = ({selectedGate}) => {
   return (
     <div>
       <div className="state-zero">
-        <h1 className='state-icon'>|0{'>'}</h1>
+        <h1 className='state-icon'>| 0 {'>'}</h1>
         <div className="line-container">
           <div
             className="dot"
@@ -101,11 +101,11 @@ const DotMovement = ({selectedGate}) => {
             }}
           />
         </div>
-        <h1 className='state-icon'>|0{'>'}</h1>
+        <h1 className='state-icon'>| 0 {'>'}</h1>
       </div>
 
       <div className="state-one">
-        <h1 className='state-icon'>|1{'>'}</h1>
+        <h1 className='state-icon'>| 1 {'>'}</h1>
         <div className="line-container">
           <div
             className="dot"
@@ -120,7 +120,7 @@ const DotMovement = ({selectedGate}) => {
             }}
           />
         </div>
-        <h1 className='state-icon'>|1{'>'}</h1>
+        <h1 className='state-icon'>| 1 {'>'}</h1>
       </div>
     </div>
   );
