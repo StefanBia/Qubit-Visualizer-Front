@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import '../sign-in-modal/SignInModal.css'; // Update the path to your CSS file
+import '../sign-in-modal/SignInModal.css'; 
+import axios from 'axios';
 
-const SignInModal = ({ onClose }) => {
+const SignInModal = ({ onClose, updateSelectedGate  }) => {
   const [formData, setFormData] = useState({
     username: '',
-    firstName: '',
-    lastName: '',
+    password: ''
   });
 
   const handleInputChange = (e) => {
@@ -16,12 +16,22 @@ const SignInModal = ({ onClose }) => {
     }));
   };
 
-  const handleSignInSubmit = (e) => {
+  const handleSignInSubmit = async (e) => {
     e.preventDefault();
-    // Add logic for handling sign-in form submission
-    console.log('Form submitted:', formData);
-    // Close the sign-in modal
-    onClose();
+
+    try {
+      // Make a POST request to your backend endpoint
+      const response = await axios.post('http://localhost:8080/user/login', formData);
+
+      // Handle successful authentication response
+      console.log('Authentication successful:', response.data);
+      const selectedGate = response.data.selectedGate;
+      updateSelectedGate(selectedGate);
+      onClose();
+    } catch (error) {
+      // Handle authentication failure or other errors
+      console.error('Authentication failed:', error.response.data);
+    }
   };
 
   return (
@@ -40,23 +50,15 @@ const SignInModal = ({ onClose }) => {
             />
           </label>
           <label>
-            First Name:
+            Password:
             <input
               type='text'
-              name='firstName'
-              value={formData.firstName}
+              name='password'
+              value={formData.password}
               onChange={handleInputChange}
             />
           </label>
-          <label>
-            Last Name:
-            <input
-              type='text'
-              name='lastName'
-              value={formData.lastName}
-              onChange={handleInputChange}
-            />
-          </label>
+      
           <div className='modal-buttons'>
             <button type='submit'>Submit</button>
             <button type='button' onClick={onClose}>

@@ -23,6 +23,11 @@ function App() {
     setSignInOpen(false);
   };
 
+  const updateSelectedGate = (newGate) => {
+    setSelectedGate(newGate);
+    closeSignInModal(); // Close the modal after updating the selectedGate
+  };
+
   return (
     <div>
       <div className='header'>
@@ -42,7 +47,7 @@ function App() {
       </div>
 
       {/* Conditionally render the SignInModal component */}
-      {signInOpen && <SignInModal onClose={closeSignInModal} />}
+      {signInOpen && <SignInModal onClose={closeSignInModal} updateSelectedGate={updateSelectedGate}/>}
     </div>
   );
 }
