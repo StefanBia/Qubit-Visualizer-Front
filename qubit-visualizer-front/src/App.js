@@ -5,16 +5,20 @@ import Workbench from './components/workbench';
 import './fonts/space_age/space_age.ttf';
 import './fonts/lt_aspirer_neue/LTAspirerNeue-Regular.otf';
 import './fonts/quantum_4/Quantum.otf';
-import SignInModal from './components/sign-in-modal/SignInModal'; // Import the SignInModal component
+import SignInModal from './components/sign-in-modal/SignInModal'; 
+import SignUpModal from './components/sign-up-modal/SignUpModal';
 
 function App() {
   const [selectedGate, setSelectedGate] = useState('Pauli-X');
   const [signInOpen, setSignInOpen] = useState(false);
+  const [signUpOpen, setSignUpOpen] = useState(false);
 
   const handleButtonClicked = (buttonLabel) => {
     if (buttonLabel === 'Sign In') {
       setSignInOpen(true);
-    } else {
+    } else if(buttonLabel === 'Sign Up'){
+      setSignUpOpen(true);
+    }else{
       setSelectedGate(buttonLabel);
     }
   };
@@ -23,9 +27,13 @@ function App() {
     setSignInOpen(false);
   };
 
+  const closeSignUpModal = () => {
+    setSignUpOpen(false);
+  };
+
   const updateSelectedGate = (newGate) => {
     setSelectedGate(newGate);
-    closeSignInModal(); // Close the modal after updating the selectedGate
+    closeSignInModal(); 
   };
 
   return (
@@ -35,9 +43,14 @@ function App() {
           Menu
         </button>
         <h1 className='title'>Qubit Visualizer</h1>
-        <button className='sign-in-tab' onClick={() => handleButtonClicked('Sign In')}>
-          Sign In
-        </button>
+        <div>
+          <button className='sign-in-tab' onClick={() => handleButtonClicked('Sign In')}>
+            Sign In
+          </button>
+          <button className='sign-in-tab' onClick={() => handleButtonClicked('Sign Up')}>
+            Sign Up
+          </button>
+        </div>
       </div>
 
       <div className='content-panel'>
@@ -46,8 +59,9 @@ function App() {
         <Workbench onButtonClicked={handleButtonClicked} />
       </div>
 
-      {/* Conditionally render the SignInModal component */}
+      
       {signInOpen && <SignInModal onClose={closeSignInModal} updateSelectedGate={updateSelectedGate}/>}
+      {signUpOpen && <SignUpModal onClose={closeSignUpModal}/>}
     </div>
   );
 }
