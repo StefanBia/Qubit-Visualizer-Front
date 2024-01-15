@@ -8,7 +8,7 @@ const SignInModal = ({ onClose, updateSelectedGate  }) => {
     password: ''
   });
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e) => {//Update the structure for the data according to the values of the input
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -16,11 +16,11 @@ const SignInModal = ({ onClose, updateSelectedGate  }) => {
     }));
   };
 
-  const handleSignInSubmit = async (e) => {
+  const handleSignInSubmit = async (e) => {//Make a request to the server side application
     e.preventDefault();
 
     try {
-      // Make a POST request to your backend endpoint
+      // Make a POST request to the backend endpoint
       const response = await axios.post('http://localhost:8080/user/login', formData);
 
       // Handle successful authentication response

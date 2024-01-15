@@ -1,27 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import './DotMovement.css'; // Import the CSS file
+import './DotMovement.css'; 
 
 const DotMovement = ({selectedGate}) => {
-  const [Xposition, setXPosition] = useState(0);
-  const [Yposition, setYPosition] = useState(-20);
-  const [secondDotOpacity, setSecondDotOpacity] = useState(0); // Initialize opacity to 1
+  const [Xposition, setXPosition] = useState(0);//Set initial position of the dots
+  const [Yposition, setYPosition] = useState(-20);//TO BE CHANGED
+  const [secondDotOpacity, setSecondDotOpacity] = useState(0); //Set initial opacity of the dot, visible from the starting state
   const [firstDotOpacity, setFirstDotOpacity] = useState(1);
-  const [dotSize, setDotSize] = useState(40); // Initialize size to 40px
-  const [firstDotColor, setFirstDotColor] = useState('linear-gradient(135deg, hsl(108, 79%, 35%), #105910)');
-  const [secondDotColor, setSecondDotColor] = useState('linear-gradient(135deg, hsl(108, 79%, 35%), #105910)'); // Initialize color
-  const colorRealPositive = 'linear-gradient(135deg, hsl(108, 79%, 35%), #105910)';
+  const [dotSize, setDotSize] = useState(40); //Set the size of the dot
+  const [firstDotColor, setFirstDotColor] = useState('linear-gradient(135deg, hsl(108, 79%, 35%), #105910)');//Set initial color of the dot linear gradient for 3D effect
+  const [secondDotColor, setSecondDotColor] = useState('linear-gradient(135deg, hsl(108, 79%, 35%), #105910)'); 
+  const colorRealPositive = 'linear-gradient(135deg, hsl(108, 79%, 35%), #105910)';//Define the color for each possible values of the state
   const colorRealNegative = 'linear-gradient(135deg, rgb(176, 31, 31), rgb(111, 14, 14))';
   const colorImaginaryPositive = 'linear-gradient(135deg, #15afaf, #0a5959)';
-  const lineLength = 600;
+  const lineLength = 600;//Define the length of the line between the states
   let firstHalf = true;
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       setXPosition((prevXPosition) => {
-        const newXPosition = (prevXPosition + 3) % lineLength;
+        const newXPosition = (prevXPosition + 3) % lineLength;//Trigger the movement of the dot along the line 
 
-        if (selectedGate === 'Pauli-X') {
-          if (newXPosition > lineLength / 2 && firstHalf) {
+        if (selectedGate === 'Pauli-X') {//Set the first dot to invisible and set the second dot to visible
+          if (newXPosition > lineLength / 2 && firstHalf) {//TO BE CHANGED to switch case
             setSecondDotOpacity(1);
             setFirstDotOpacity(0);
             firstHalf = false;
@@ -35,7 +35,7 @@ const DotMovement = ({selectedGate}) => {
           }
         }
 
-        if (selectedGate === 'Hadamard') {
+        if (selectedGate === 'Hadamard') {//Set both dots visible, make them smaller
           if (newXPosition > lineLength / 2 && firstHalf) {
             setSecondDotOpacity(1);
             setDotSize(30);
@@ -52,7 +52,7 @@ const DotMovement = ({selectedGate}) => {
           }
         }
 
-        if (selectedGate === 'Pauli-Y') {
+        if (selectedGate === 'Pauli-Y') {//Set first dot invisible, second visible and different color
           if (newXPosition > lineLength / 2 && firstHalf) {
             setSecondDotColor(colorImaginaryPositive);
             setSecondDotOpacity(1);
@@ -68,7 +68,7 @@ const DotMovement = ({selectedGate}) => {
           }
         }
 
-        if (selectedGate === 'Pauli-Z') {
+        if (selectedGate === 'Pauli-Z') {//Does nothing for state 0
         
           setFirstDotColor(colorRealPositive);
           setSecondDotOpacity(0);
@@ -76,7 +76,7 @@ const DotMovement = ({selectedGate}) => {
           setDotSize(40);
         }
 
-        return newXPosition;
+        return newXPosition;//Return the new position of the dot
       });
     }, 16);
 
@@ -91,9 +91,9 @@ const DotMovement = ({selectedGate}) => {
           <div
             className="dot"
             style={{
-              transform: `translate(${Xposition}px , ${Yposition}px)`,
+              transform: `translate(${Xposition}px , ${Yposition}px)`,//Update the position of the dot, Yposition redundant for now
               opacity: firstDotOpacity,
-              width: `${dotSize}px`,
+              width: `${dotSize}px`,//Update according to selected gate
               height: `${dotSize}px`,
               background: firstDotColor,
               borderRadius: '50%', // Preserve the border-radius
@@ -110,9 +110,9 @@ const DotMovement = ({selectedGate}) => {
           <div
             className="dot"
             style={{
-              transform: `translate(${Xposition}px , -50%)`,
+              transform: `translate(${Xposition}px , -50%)`,//Move second dot at the same speed as the first one
               opacity: secondDotOpacity,
-              width: `${dotSize}px`,
+              width: `${dotSize}px`,//Update according to selected gate
               height: `${dotSize}px`,
               background: secondDotColor,
               borderRadius: '50%', // Preserve the border-radius

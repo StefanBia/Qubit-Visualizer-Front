@@ -9,29 +9,29 @@ import SignInModal from './components/sign-in-modal/SignInModal';
 import SignUpModal from './components/sign-up-modal/SignUpModal';
 
 function App() {
-  const [selectedGate, setSelectedGate] = useState('Pauli-X');
-  const [signInOpen, setSignInOpen] = useState(false);
+  const [selectedGate, setSelectedGate] = useState('Pauli-X');//Set the default value for the current gate
+  const [signInOpen, setSignInOpen] = useState(false);//Set the default visibility of the sign in/up modals
   const [signUpOpen, setSignUpOpen] = useState(false);
 
-  const handleButtonClicked = (buttonLabel) => {
-    if (buttonLabel === 'Sign In') {
+  const handleButtonClicked = (buttonLabel) => {//Handle the click of a button
+    if (buttonLabel === 'Sign In') {//TO BE MOVED OUTSIDE open the Sign In model on button click
       setSignInOpen(true);
-    } else if(buttonLabel === 'Sign Up'){
+    } else if(buttonLabel === 'Sign Up'){//TO BE MOVED OUTSIDE open the Sign Up model on button click
       setSignUpOpen(true);
     }else{
-      setSelectedGate(buttonLabel);
+      setSelectedGate(buttonLabel);//Set the current gate to the received value
     }
   };
 
-  const closeSignInModal = () => {
+  const closeSignInModal = () => {//Close Sign In modal
     setSignInOpen(false);
   };
 
-  const closeSignUpModal = () => {
+  const closeSignUpModal = () => {//Close Sign Up modal
     setSignUpOpen(false);
   };
 
-  const updateSelectedGate = (newGate) => {
+  const updateSelectedGate = (newGate) => {//Update the selected gate to a new gate
     setSelectedGate(newGate);
     closeSignInModal(); 
   };
@@ -39,7 +39,7 @@ function App() {
   return (
     <div>
       <div className='header'>
-        <button className='menu-bar' onClick={() => handleButtonClicked('Menu')}>
+        <button className='menu-bar' >
           Menu
         </button>
         <h1 className='title'>Qubit Visualizer</h1>

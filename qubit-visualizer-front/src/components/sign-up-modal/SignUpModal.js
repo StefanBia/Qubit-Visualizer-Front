@@ -3,14 +3,14 @@ import '../sign-up-modal/SignUpModal.css';
 import axios from 'axios';
 
 const SignUpModal = ({ onClose }) => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({//Create structure for the data inside the form
     username: '',
     password: '',
     firstName: '',
     lastName: ''
   });
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e) => {//Update the structure for the data according to the values of the input
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -18,17 +18,17 @@ const SignUpModal = ({ onClose }) => {
     }));
   };
 
-  const handleSignUpSubmit = async (e) => {
+  const handleSignUpSubmit = async (e) => {//Make a request to the server side application
     e.preventDefault();
 
     try {
-      // Make a POST request to your backend endpoint
+      // Make a POST request to backend endpoint
       const response = await axios.post('http://localhost:8080/user/add', formData);
 
       // Handle successful authentication response
       console.log('Sign Up successful:', response.data);
      
-      onClose();
+      onClose();//Close the modal
     } catch (error) {
       // Handle authentication failure or other errors
       console.error('Sign Up failed:', error.response.data);

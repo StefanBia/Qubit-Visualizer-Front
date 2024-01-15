@@ -2,7 +2,7 @@ import React from 'react';
 import './workbench.css';
 
 const Workbench = ({ onButtonClicked }) => {
-  const renderButton = (label, operation) => (
+  const renderButton = (label, operation) => (//Create gate button and send the operation to the Dot Mover
     <button className="square-button" onClick={() => onButtonClicked(operation)}>
       {label}
     </button>
