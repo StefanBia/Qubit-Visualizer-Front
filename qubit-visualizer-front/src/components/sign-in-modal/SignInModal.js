@@ -38,7 +38,10 @@ const SignInModal = ({ onClose, updateSelectedGate  }) => {
     <div className='modal-overlay'>
        
       <div className='sign-in-modal'>
-      <h1 className='header'>Sign In</h1>
+
+      <div className='header-sign-in'>
+        <h1>Sign Up</h1>
+      </div>
         <form onSubmit={handleSignInSubmit} className='sign-in-form'>
           <label>
             Username:

@@ -20,6 +20,7 @@
     width: 100%;
     text-align: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    
   }
   
   .sign-up-form label {
@@ -61,5 +62,10 @@
   
   .modal-buttons button:hover {
     background-color: #2980b9;
+  }
+  
+  .header-sign-up{
+    display: flex;
+    justify-content: center;
   }
   

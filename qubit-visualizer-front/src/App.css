@@ -1,6 +1,6 @@
 .header{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 80px;
 }
@@ -64,6 +64,14 @@ body {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+}
+
+.menu-bar{
+  margin-left: 10px;
+}
+
+.sign-in-tab{
+  margin-right: 10px;
 }
 
 .menu-bar:hover, .sign-in-tab:hover {

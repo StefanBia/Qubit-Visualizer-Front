@@ -62,5 +62,9 @@
     background-color: #2980b9; /* Button color on hover */
   }
   
+  .header-sign-in{
+    display: flex;
+    justify-content: center;
+  }
   /* Add more styles as needed */
   

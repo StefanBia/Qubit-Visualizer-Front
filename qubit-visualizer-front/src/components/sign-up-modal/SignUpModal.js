@@ -37,9 +37,11 @@ const SignUpModal = ({ onClose }) => {
 
   return (
     <div className='modal-overlay'>
-       
+      
       <div className='sign-up-modal'>
-      <h1 className='header'>Sign Up</h1>
+      <div className='header-sign-up'>
+        <h1>Sign Up</h1>
+      </div>
         <form onSubmit={handleSignUpSubmit} className='sign-up-form'>
         <label className='FN-label'>
             First Name:
