@@ -74,7 +74,7 @@ body {
   margin-right: 10px;
 }
 
-.menu-bar:hover, .sign-in-tab:hover {
+.sign-in-tab:hover {
   background-color: #0b3653; /* Button color on hover */
 }
 

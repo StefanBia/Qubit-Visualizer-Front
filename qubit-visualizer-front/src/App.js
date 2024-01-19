@@ -7,6 +7,7 @@ import './fonts/lt_aspirer_neue/LTAspirerNeue-Regular.otf';
 import './fonts/quantum_4/Quantum.otf';
 import SignInModal from './components/sign-in-modal/SignInModal'; 
 import SignUpModal from './components/sign-up-modal/SignUpModal';
+import MenuBar from './components/menu-bar/menuBar';
 
 function App() {
   const [selectedGate, setSelectedGate] = useState('Pauli-X');//Set the default value for the current gate
@@ -59,9 +60,7 @@ function App() {
   return (
     <div>
       <div className='header'>
-        <button className='menu-bar' >
-          Menu
-        </button>
+        <MenuBar/>
         <h1 className='title'>Qubit Visualizer</h1>
         <div className='sign-bar'>
           <button className='sign-in-tab' onClick={() => handleButtonClicked('Sign In')}>
