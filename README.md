@@ -38,4 +38,4 @@ This project is open for contributions, as well as improvement suggestions.
 
 ## Acknowledgements
 
-I have to give credit to the TUCN for teaching me this subject, as well as the [Uranium](https://uranium.transilvania-quantum.org/)  platform and the [Quantum Odyssey](https://www.quarksinteractive.com/)  video game for being the inspiration of my work.
+I have to give credit to the TUCN for teaching me this subject, especially Professor Liviu Zirbo, as well as the [Uranium](https://uranium.transilvania-quantum.org/)  platform and the [Quantum Odyssey](https://www.quarksinteractive.com/)  video game for being the inspiration of my work.
