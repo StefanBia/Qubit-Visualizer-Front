@@ -10,8 +10,13 @@ import SignUpModal from './components/sign-up-modal/SignUpModal';
 
 function App() {
   const [selectedGate, setSelectedGate] = useState('Pauli-X');//Set the default value for the current gate
+  const [gateText, setGateText] = useState('Ninn');//Default value of the text explaining the gate
   const [signInOpen, setSignInOpen] = useState(false);//Set the default visibility of the sign in/up modals
   const [signUpOpen, setSignUpOpen] = useState(false);
+  const paulixText = 'The Pauli-X gate is a single-qubit rotation through π radians around the x-axis.';
+  const pauliyText = 'The Pauli-Y gate is a single-qubit rotation through π radians around the y-axis.';
+  const paulizText = 'The Pauli-Z gate is a single-qubit rotation through π radians around the z-axis.';
+  const hadamardText = 'The Hadamard gate creates a superposition of the states 0 and 1.';
 
   const handleButtonClicked = (buttonLabel) => {//Handle the click of a button
     if (buttonLabel === 'Sign In') {//TO BE MOVED OUTSIDE open the Sign In model on button click
@@ -21,6 +26,7 @@ function App() {
     }else{
       setSelectedGate(buttonLabel);//Set the current gate to the received value
     }
+    updateGateText(buttonLabel);//Update the text explainig the gate
   };
 
   const closeSignInModal = () => {//Close Sign In modal
@@ -31,10 +37,24 @@ function App() {
     setSignUpOpen(false);
   };
 
+  const updateGateText = (selectedGate) => {
+    
+    if(selectedGate === "Pauli-X")
+      setGateText(paulixText);
+    else if(selectedGate === "Pauli-Y")
+      setGateText(pauliyText);
+    else if(selectedGate === "Pauli-Z")
+      setGateText(paulizText);
+    else if(selectedGate === "Hadamard")
+      setGateText(hadamardText);
+  }
+
   const updateSelectedGate = (newGate) => {//Update the selected gate to a new gate
     setSelectedGate(newGate);
+    updateGateText(newGate);
     closeSignInModal(); 
   };
+
 
   return (
     <div>
@@ -43,7 +63,7 @@ function App() {
           Menu
         </button>
         <h1 className='title'>Qubit Visualizer</h1>
-        <div>
+        <div className='sign-bar'>
           <button className='sign-in-tab' onClick={() => handleButtonClicked('Sign In')}>
             Sign In
           </button>
@@ -57,6 +77,10 @@ function App() {
         <DotMovement selectedGate={selectedGate} />
         <div className='selected-gate'>{selectedGate}</div>
         <Workbench onButtonClicked={handleButtonClicked} />
+      </div>
+
+      <div className='gate-text-container'>
+      {gateText}
       </div>
 
       

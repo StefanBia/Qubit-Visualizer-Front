@@ -78,5 +78,17 @@ body {
   background-color: #0b3653; /* Button color on hover */
 }
 
+.gate-text-container{
+  margin-top: 40px;
+  text-align: center;
+  font-family: aspirer-neue;
+}
+
+/* .sign-bar,
+.title,
+.menu-bar{
+  
+  
+} */
 
 
