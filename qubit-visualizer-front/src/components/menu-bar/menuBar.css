@@ -20,3 +20,13 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
+
+  .menu-list{
+    list-style: none;
+    display: flex;
+    flex-flow: row nowrap;
+
+  }
+  .menu-item{
+    padding : 18px 10px;
+  }
