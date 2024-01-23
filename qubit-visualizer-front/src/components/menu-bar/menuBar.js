@@ -2,6 +2,7 @@ import React from "react";
 import styled from 'styled-components';
 import './menuBar.css';
 import Burger from "./burger";
+import MenuContent from "./menuContent";
 
 const Menu = styled.nav`
     width : 100%;
@@ -14,16 +15,8 @@ const Menu = styled.nav`
 const MenuBar = () =>{
     return(
         <Menu>
-            <div className="menu-bar-button">
-                Menu
-            </div>
-            <Burger />
             
-            <ul className="menu-list">
-                <li className="menu-item">Home</li>
-                <li className="menu-item">About Us</li>
-                <li className="menu-item">More</li>
-            </ul>
+            <Burger />
         </Menu>
     );
 }
