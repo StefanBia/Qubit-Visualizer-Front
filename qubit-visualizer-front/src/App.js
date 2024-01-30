@@ -11,7 +11,7 @@ import MenuBar from './components/menu-bar/menuBar';
 
 function App() {
   const [selectedGate, setSelectedGate] = useState('Pauli-X');//Set the default value for the current gate
-  const [gateText, setGateText] = useState('Ninn');//Default value of the text explaining the gate
+  const [gateText, setGateText] = useState('Pauli-X');//Default value of the text explaining the gate
   const [signInOpen, setSignInOpen] = useState(false);//Set the default visibility of the sign in/up modals
   const [signUpOpen, setSignUpOpen] = useState(false);
   const paulixText = 'The Pauli-X gate is a single-qubit rotation through π radians around the x-axis.';
