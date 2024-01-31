@@ -7,8 +7,8 @@ const MenuContent = ({open}) => {
 
     return(
         <div className="menu-content" open = {open}>
-            <button>About Us</button>
-            <button>More</button>
+            <button className="menu-button">About Us</button>
+            <button className="menu-button">More</button>
         </div>
     );
 

@@ -14,13 +14,20 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 170px; 
+    width: 250px; 
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
+    background-color: rgb(14, 60, 92); /* Semi-transparent background */
     z-index: 3; 
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 20px;
     align-items: center;
+  }
+
+  .menu-button{
+    width: 160px;
+    height: 60px;
+    background-color: rgb(61, 22, 97);
   }
   
