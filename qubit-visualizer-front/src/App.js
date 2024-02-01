@@ -8,6 +8,8 @@ import './fonts/quantum_4/Quantum.otf';
 import SignInModal from './components/sign-in-modal/SignInModal'; 
 import SignUpModal from './components/sign-up-modal/SignUpModal';
 import MenuBar from './components/menu-bar/menuBar';
+import { BrowserRouter as Router, Route,Switch,Link } from 'react-router-dom';
+import Tutorial from './pages/tutorial';
 
 function App() {
   const [selectedGate, setSelectedGate] = useState('Pauli-X');//Set the default value for the current gate
