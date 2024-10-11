@@ -12,7 +12,7 @@ const Menu = styled.nav`
     display : flex;
     justify-content: space-between;
 `
-const MenuBar = () =>{
+export const MenuBar = () =>{
     return(
         <Menu>
             <Burger />
